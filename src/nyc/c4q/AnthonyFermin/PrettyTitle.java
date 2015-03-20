@@ -27,13 +27,13 @@ public class PrettyTitle {
     //capitalizes a string to proper title format
     public static String makeTitleCaps(String toTitle){
 
-        String isTitle = ""; //empty string for final result
+        String isTitle = ""; //separate empty string for final result
 
         toTitle = toTitle.trim().toLowerCase(); //sets all string to lowercase to start and trims extra spaces from start/end
         int lastSpaceIndex = toTitle.lastIndexOf(' '); //assigns lastSpaceIndex the index position of last space position
 
         isTitle += Character.toUpperCase(toTitle.charAt(0)); //capitalizes first character of title
-        int currentIndex = 1; //sets currentIndex to second character
+        int currentIndex = 1; //sets currentIndex to second character in string
 
         //loops through string until currentIndex reaches lastSpaceIndex
         while(currentIndex < lastSpaceIndex) {
@@ -41,7 +41,7 @@ public class PrettyTitle {
             isTitle += toTitle.substring(currentIndex, nextSpace) + " "; //concatenates substring (which are all lowercase) between currentIndex and nextSpace to the isTitle String. Also adds a space
             currentIndex = nextSpace + 1; //sets currentIndex to the index after nextSpace
 
-            //capitalizes first letter of the next word if the word is not supposed to be capitalized in a title (propositions, articles or coordinating conjunctions under 5 letters long)
+            //capitalizes first letter of the next word if the word is not supposed to be capitalized in a title (propositions, articles or coordinating conjunctions under 4 letters long)
             if (shouldCapitalize(toTitle, currentIndex)) {
                 isTitle += Character.toUpperCase(toTitle.charAt(currentIndex));
                 currentIndex++;

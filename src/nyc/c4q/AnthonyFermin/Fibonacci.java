@@ -7,15 +7,16 @@ import java.util.Scanner;
  */
 public class Fibonacci {
 
-    public static double getFib(int numOfFib){
-        double fibNum = 1;
-        double previousFib = 0;
-        double nextFib;
+    //takes int fibIndex parameter and returns the fibonacci number corresponding to fibIndex as a long value
+    public static long getFib(int fibIndex){
+        long fibNum = 1;
+        long previousFib = 0;
+        long nextFib;
 
-        if(numOfFib == 0){
+        if(fibIndex == 0){
             return previousFib;
-        }else if(numOfFib > 1){
-            for(int i = 1; i < numOfFib; i++){
+        }else if(fibIndex >= 2){
+            for(int i = 2; i <= fibIndex; i++){
                 nextFib = fibNum + previousFib;
                 previousFib = fibNum;
                 fibNum = nextFib;
@@ -29,7 +30,7 @@ public class Fibonacci {
         Scanner in = new Scanner(System.in);
         int fibIteration;
 
-        System.out.print("Enter the iteration of the fibonacci sequence you would like to compute: ");
+        System.out.print("Enter the index of the fibonacci sequence you would like to compute: ");
         fibIteration = in.nextInt();
         System.out.println("F(" + fibIteration + ") = " + getFib(fibIteration));
 
